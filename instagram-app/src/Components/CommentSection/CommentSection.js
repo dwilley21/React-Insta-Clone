@@ -5,9 +5,11 @@ const CommentSection = props => {
         <div className="comments">
             {props.comments.map(comment => {
                 return <div>
-                    <p><i>{comment.username}</i></p>{comment.text}
+                    <h3>{comment.username}</h3>
+                    <p>{comment.text}</p>
                 </div>   
             })}
+            <input type="text" />
         </div>
     )
 }

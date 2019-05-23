@@ -3,7 +3,7 @@ import '../../App.css'
 import CommentSection from '../CommentSection/CommentSection';
 
 const PostContainer = props => {
-    console.log(props)
+  
     return (
         <div className="post-header">
             <div>
