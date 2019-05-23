@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import SearchBar from './Components/SearchBar/SearchBar';
+import PostContainer from './Components/PostContainer/PostContainer';
+import dummyData from './dummy-data'; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super(); 
+    this.state = {
+      posts: dummyData
+    }
+  }
+  render(){
+    console.log({dummyData});
+    return (
+      <div className="App">
+        <SearchBar />
+
+        {dummyData.map(post => (
+          <PostContainer
+            key={post.id}
+            imageUrl={post.imageUrl}
+            likes={post.likes}
+            comments={post.comments}
+            thumbnailUrl={post.thumbnailUrl}
+            username={post.username}
+            />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
